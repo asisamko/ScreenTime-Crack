@@ -5,10 +5,7 @@ import hashlib
 import os
 import time
 import sys
-from colorama import init, Fore
 from Crypto.Protocol.KDF import PBKDF2
-
-init(autoreset = True)
 
 # Deafult Windows itunes backup locations
 #paths = [
@@ -39,13 +36,13 @@ elif sys.platform.startswith("linux"):
 else:
     print("OS not supported!")
 
-print(Fore.MAGENTA +
+print(
 '''
  ---------------------------------------------
 |  ScreenTime Passcode Cracker for iOS 4 - 11 |
 |           made by asisamko | v1.0.0         |
  ---------------------------------------------
-''' + Fore.RESET)
+''')
 
 print("Searching for backups...")
 
@@ -157,4 +154,4 @@ if target_file.exists() and target_file.is_file():
         else:
             print("Required keys not found in plist")
 else:
-    print(f"\nFile not found: {target_file}\nMake sure you selected the right backup or iOS version...\n")
+    print(f"\nPlist file not found: {target_file}\nMake sure you selected the right backup or iOS version...\n")
