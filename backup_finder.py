@@ -24,21 +24,18 @@ for base_path in paths:
         plist_file = base_path / "Info.plist"
         if plist_file.exists():
             i += 1
-            print(f"\n[{i}.] Backup found: {base_path}")
+            print(f"[{i}.] Backup found: {base_path}")
             backup_locations.append(base_path)  # save backup path
 
             with open(plist_file, "rb") as f:
                 plist = plistlib.load(f)
 
-            result = {k: plist[k] for k in (
-                "Device Name",
-                "Product Name",
-                "Product Version",
-                "Last Backup Date"
-            ) if k in plist}
-
-            formatted_plist_info = "\n".join(f"{k}: {v}" for k, v in result.items())
-            print(f"{formatted_plist_info}\nVulnerable: soon?")
+                print(
+f"""Device name: {plist.get("Device Name", "N/A")}
+Product name: {plist.get("Product Name", "N/A")}
+iOS version: {plist.get("Product Version", "N/A")}
+Backup date: {plist.get("Last Backup Date", "N/A")}
+""")
         
         # If not found in root, check all subfolders recursively
         for root, dirs, files in os.walk(base_path):
@@ -53,15 +50,13 @@ for base_path in paths:
                 with open(plist_file, "rb") as f:
                     plist = plistlib.load(f)
 
-                result = {k: plist[k] for k in (
-                    "Device Name",
-                    "Product Name",
-                    "Product Version",
-                    "Last Backup Date"
-                ) if k in plist}
-
-                formatted_plist_info = "\n".join(f"{k}: {v}" for k, v in result.items())
-                print(f"{formatted_plist_info}\nVulnerable: soon?")
+                print(
+f"""Device name: {plist.get("Device Name", "N/A")}
+Product name: {plist.get("Product Name", "N/A")}
+iOS version: {plist.get("Product Version", "N/A")}
+Backup date: {plist.get("Last Backup Date", "N/A")}
+""")
+        
 
 
 selected_backup = int(input(f"\nSelect backup: [1-{i}]: "))
