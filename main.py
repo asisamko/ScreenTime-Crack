@@ -1,3 +1,6 @@
+# Main script for brute-forcing the ScreenTime/Restrcitions passcode
+# made by asisamko | https://github.com/asisamko
+
 from pathlib import Path
 import plistlib
 import json
@@ -15,6 +18,7 @@ from Crypto.Protocol.KDF import PBKDF2
 
 paths = []
 
+# Checks operating system to specify the default path
 if sys.platform == "win32":
     os.system("cls")
     paths = [
@@ -90,10 +94,10 @@ iOS version: {plist.get("Product Version", "N/A")}
 Backup date: {plist.get("Last Backup Date", "N/A")}
 """)
 
-# check if the backup number exists
+# Checks if the backup number exists
 while True:
     try:
-        selected_backup = int(input(f"Select backup: [1-{i}]: "))
+        selected_backup = int(input(f"Select backup: [{i-i+1}-{i}]: "))
         if 1 <= selected_backup <= i:
             break
         else:
@@ -104,9 +108,9 @@ while True:
 
 # Get the selected backup location
 selected_path = backup_locations[selected_backup - 1]
-print(f"Backup path: {selected_path}")
+print(f"\nBackup path: {selected_path}")
 
-# Scan for the specific file
+# Scan for plist containing key and salt
 target_file = selected_path / "39" / "398bc9c2aeeab4cb0c12ada0f52eea12cf14f40b"
 
 if target_file.exists() and target_file.is_file():
@@ -115,7 +119,7 @@ if target_file.exists() and target_file.is_file():
     with open(target_file, "rb") as f:
         plist = plistlib.load(f)
 
-        # Extract keys and values to variables
+        # save keys and values to vars
         restrictions_password_key = plist.get("RestrictionsPasswordKey")
         restrictions_password_salt = plist.get("RestrictionsPasswordSalt")
 
@@ -123,12 +127,12 @@ if target_file.exists() and target_file.is_file():
             print(f"RestrictionsPasswordKey: {restrictions_password_key.hex()}")
             print(f"RestrictionsPasswordSalt: {restrictions_password_salt.hex()}")
             
-            input("\nPress any key to continue...")
+            input("\nPress Enter to start...\n")
 
             start_time = time.time()
 
             for pin in range(10000): # 9 999 possible combs (0000 - 9999)
-                pin_str = f"{pin:04d}" # converts every digit to 4 digits
+                pin_str = f"{pin:04d}" # converts digits to 4 digit strings
 
                 derived_key  = hashlib.pbkdf2_hmac(
                     'sha1',
@@ -142,6 +146,7 @@ if target_file.exists() and target_file.is_file():
                     end_time = time.time()
                     print(f"\nPIN Cracked: {pin_str}")
                     print(f"Time taken: {end_time - start_time:.2f} s")
+                    input("\nPress Enter to exit...")
                     break
 
                 else:
@@ -150,8 +155,11 @@ if target_file.exists() and target_file.is_file():
             else:
                 end_time = time.time()
                 print(f"\nNO PIN FOUND!!!")
+                input("\nPress Enter to exit...")
 
         else:
             print("Required keys not found in plist")
+            input("\nPress Enter to exit...")
 else:
     print(f"\nPlist file not found: {target_file}\nMake sure you selected the right backup or iOS version...\n")
+    input("Press Enter to exit...")
