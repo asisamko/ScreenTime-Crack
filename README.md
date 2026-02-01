@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="https://i.imgur.com/2jQZjqz.png" width="140" height="140">
+</p>
 <h1 align="center">ScreenTime Crack ⚙️🔐</h1>
 
 <p align="center">
