@@ -22,17 +22,15 @@ paths = []
 if sys.platform == "win32":
     os.system("cls")
     paths = [
-        Path(os.getenv("APPDATA")) / "Apple Computer" / "MobileSync" / "Backup",
-        Path.home() / "Apple" / "MobileSync" / "Backup",
+        Path(os.getenv("APPDATA")) / "Apple Computer" / "MobileSync" / "Backup", # iTunes deafult backup folder
+        Path.home() / "Apple" / "MobileSync" / "Backup", # iTunes deafult backup folder
     ]
-    pass
 
 elif sys.platform == "darwin":
     os.system("clear")
     paths = [
         Path.home() / "Library" / "Application Support" / "MobileSync" / "Backup"
     ]
-    pass
 
 elif sys.platform.startswith("linux"):
     print("Linux not supported :/")
