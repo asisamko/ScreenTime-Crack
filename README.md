@@ -16,7 +16,7 @@ If you want to know more about how this script works, [scroll down to: How It Wo
 
 ## Installation
 > [!IMPORTANT]
-> **Windows executable coming soon** - no need to install Python and setup anything. 🙏
+> **Windows users** - You can skip these steps below and download executable from [Releases tab](https://github.com/asisamko/ScreenTime-Crack/releases/latest)
 
 - Download and install [Python 3](https://www.python.org/downloads/)
 - Download [this program](https://github.com/asisamko/ScreenTime-Crack/archive/refs/heads/main.zip) from GitHub
@@ -38,7 +38,8 @@ If you want to know more about how this script works, [scroll down to: How It Wo
 - [ ] Add **Custom Backup Location** option
 
 ## How It Works
-*soon.* [-bibby](https://i.redd.it/1d0q5sasni091.jpg)
+> [!NOTE]
+> coming soon...
 
 ## Support
 Found a bug or issue? Open a new issue in the [Issues tab](https://github.com/asisamko/ScreenTime-Crack/issues) or [create a fork](https://github.com/asisamko/ScreenTime-Crack/pulls) of this repo.
