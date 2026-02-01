@@ -45,6 +45,11 @@ If you want to know more about how this script works, [scroll down to: How It Wo
 Found a bug or issue? Open a new issue in the [Issues tab](https://github.com/asisamko/ScreenTime-Crack/issues) or [create a fork](https://github.com/asisamko/ScreenTime-Crack/pulls) of this repo.
 
 ## Credits
-Huge thanks to [PinFinder](https://github.com/gwatts/pinfinder) for inspiring me to create this program in first place and [this blog post](https://nbalkota.wordpress.com/2014/04/05/recover-your-forgotten-ios-7-restrictions-pin-code/) for detailed explanation how this method works and how to recreate PIN extraction.
+[PinFinder](https://github.com/gwatts/pinfinder) - inspiring me to create this program in first place
+
+[This blog post](https://nbalkota.wordpress.com/2014/04/05/recover-your-forgotten-ios-7-restrictions-pin-code/) for detailed explanation how this method works and how to recreate PIN extraction.
+
+[turdus merula](https://sep.lol/) tool I was able **downgrade** my iPhone 7 (A10) to previous **unsigned iOS** versions to develop my program.
+
 #
 **Made with 💖 by [asisamko](https://github.com/asisamko)**
